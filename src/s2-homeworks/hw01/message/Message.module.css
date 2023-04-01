@@ -1,17 +1,17 @@
 .message {
-
+    background-color: lightpink;
 }
 
 .imageAndText {
-
+    background-color: lavender;
 }
 
 .imageAndText img {
-
+    background-color: lightblue;
 }
 
 .text {
-
+    background-color: lawngreen;
 }
 
 .text:after {
@@ -19,7 +19,7 @@
 }
 
 .name {
-
+    background-color: lightsalmon;
 }
 
 .messageText {
