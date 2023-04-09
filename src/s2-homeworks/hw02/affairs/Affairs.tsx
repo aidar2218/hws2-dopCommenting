@@ -4,32 +4,32 @@ import {AffairType, FilterType} from '../HW2'
 import s from './Affairs.module.css'
 
 type AffairsPropsType = {
-    data: any // need to fix any
-    setFilter: any  //(filter: FilterType) => void -запоминай, как типизируется useState
+    data: AffairType[]
+    setFilter: (filter: FilterType) => void
     deleteAffairCallback: any  //не забывай, что функция сюда приехала не пустой
     filter: FilterType
 }
 
 function Affairs(props: AffairsPropsType) {
+    console.log(props.data)
+
     const setAll = () => {
-        // need to fix
-        //пропс.setFilter('all')
+        props.setFilter('all');
     }
     const setHigh = () => {
-        // need to fix
+        props.setFilter('high');
     }
     const setMiddle = () => {
-        // need to fix
+        props.setFilter('middle');
     }
     const setLow = () => {
-        // need to fix
+        props.setFilter("low");
     }
 
     const cnAll = s.button + ' ' + s.all + (props.filter === 'all' ? ' ' + s.active : '')
     const cnHigh = s.button + ' ' + s.high + (props.filter === 'high' ? ' ' + s.active : '')
     const cnMiddle = s.button + ' ' + s.middle + (props.filter === 'middle' ? ' ' + s.active : '')
     const cnLow = s.button + ' ' + s.low + (props.filter === 'low' ? ' ' + s.active : '')
-
 
     // создаем переменную=мапим наши данные (affairs)=>{
     // <вызываем компоненту <Affair в которую передаем глубже необходимые данные
