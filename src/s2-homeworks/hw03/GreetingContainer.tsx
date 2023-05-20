@@ -1,9 +1,6 @@
 import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
 import Greeting from './Greeting'
-import {pureAddUserCallback, UserType} from './HW3'
-import {keyboard} from "@testing-library/user-event/dist/keyboard";
-import {Simulate} from "react-dom/test-utils";
-import keyDown = Simulate.keyDown;
+import {UserType} from './HW3'
 
 type GreetingContainerPropsType = {
     users: UserType[] // need to fix any
