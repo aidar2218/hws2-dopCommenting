@@ -7,7 +7,10 @@ type GreetingContainerPropsType = {
     addUserCallback: (name: string) => void // need to fix any
 }
 
-export const pureAddUser = (name: string, setError: (error: string) => void, setName: (name: string) => void, addUserCallback: (name: string) => void) => {
+export const pureAddUser = (name: string,
+                            setError: (error: string) => void,
+                            setName: (name: string) => void,
+                            addUserCallback: (name: string) => void) => {
     // если имя пустое - показать ошибку: setError('Ошибка! Введите имя!'),
     // иначе - добавить юзера при помощи addUserCallback и очистить инпут засетав ''
     // проверить на пустоту можно при помощи метода trim(). К примеру: name.trim() !== ''
@@ -68,9 +71,9 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
         pureOnBlur(name, setError)
     }
 
-    const onEnter = (e: any) => {
+    const onEnter = (event: KeyboardEvent<HTMLInputElement>) => {
         // и здесь все тоже самое...)
-        pureOnEnter(e, addUser)
+        pureOnEnter(event, addUser)
     }
 
     const totalUsers = users.length // need to fix
