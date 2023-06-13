@@ -1,17 +1,17 @@
 .friendMessage {
-    background-color: lightpink;
+
 }
 
 .friendImageAndText {
-    background-color: lavender;
+
 }
 
 .friendImageAndText img {
-    background-color: lightblue;
+
 }
 
 .friendText {
-    background-color: lawngreen;
+
 }
 
 .friendText:after {
@@ -19,7 +19,7 @@
 }
 
 .friendName {
-    background-color: lightsalmon;
+
 }
 
 .friendMessageText {
