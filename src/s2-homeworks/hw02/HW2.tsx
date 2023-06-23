@@ -1,32 +1,28 @@
 import React, {useState} from 'react'
 import Affairs from './affairs/Affairs'
 import s2 from '../../s1-main/App.module.css'
-import affairs from "./affairs/Affairs";
-import Affair from "./affairs/affair/Affair";
 
 /*
-* 1 - описать типы AffairPriorityType, AffairType
-* 2 - указать нужный тип для defaultAffairs
-* 3 - дописать типы и логику функции filterAffairs и проверить её тестами
-* 4 - выполнить пункт 3 для функции deleteAffair
-* 5 - указать нужный тип в useState с affairs
-* 6 - дописать тип и логику функции deleteAffairCallback
-* 7 - в файле Affairs.tsx дописать типизацию пропсов
-* 8 - в файле Affairs.tsx дописать логику функций setAll, setHigh, setMiddle, setLow
-* 9 - в файле Affair.tsx дописать типизацию пропсов
-* 10 - в файле Affair.tsx дописать функции deleteCallback и использовать
+* 1 - описать типы AffairPriorityType, AffairType ++
+* 2 - указать нужный тип для defaultAffairs ++
+* 3 - дописать типы и логику функции filterAffairs и проверить её тестами ++
+* 4 - выполнить пункт 3 для функции deleteAffair ++
+* 5 - указать нужный тип в useState с affairs ++
+* 6 - дописать тип и логику функции deleteAffairCallback ++
+* 7 - в файле Affairs.tsx дописать типизацию пропсов ++
+* 8 - в файле Affairs.tsx дописать логику функций setAll, setHigh, setMiddle, setLow ++
+* 9 - в файле Affair.tsx дописать типизацию пропсов ++
+* 10 - в файле Affair.tsx дописать функции deleteCallback и использовать ++
 * 11 - в файле Affair.tsx отобразить приходящие данные
 * */
 
 // types
-export type AffairPriorityType = "low" | "middle" | "high";
-
+export type AffairPriorityType = "low" | "middle" | "high" | "all" // need to fix any
 export type AffairType = {
-    _id: number
-    name: string
+    _id: number // need to fix any
+    name: string // need to fix any
     priority: AffairPriorityType
 }
-
 export type FilterType = 'all' | AffairPriorityType
 
 // constants
@@ -39,17 +35,25 @@ const defaultAffairs: AffairType[] = [ // need to fix any
 ]
 
 // pure helper functions
-export const filterAffairs = (affairs: AffairType[], filter: FilterType): any => { // need to fix any
-
-    if (filter === "all") return affairs
-
-    return affairs.filter(el => el.priority === filter) // need to fix
+export const filterAffairs = (affairs: AffairType[], filter: FilterType) => { // need to fix any
+    //если пришел фильтр "all"...может нам вообще не фильтровать, а вернуть все?
+    //а вот если пришло другое значение...
+    if (filter === "middle") {
+        return  affairs.filter(el => el.priority === "middle");
+    }
+    if (filter === "high") {
+        return affairs.filter(el => el.priority === "high");
+    }
+    if (filter === "low") {
+        return affairs.filter(el => el.priority === "low");
+    }
+    return affairs // need to fix
 }
-export const deleteAffair = (affairs: AffairType[], _id: number): AffairType[] => { // need to fix any
+export const deleteAffair = (affairs: AffairType[], _id: number) => { // need to fix any
     // need to fix
     // отбрасывай при помощи метода filter лишних affairs
-
-    return affairs.filter((affair: AffairType) => affair._id !== _id);
+    let result = affairs.filter(el => el._id !== _id)
+    return result;
 }
 
 function HW2() {
@@ -58,10 +62,10 @@ function HW2() {
 
     const filteredAffairs = filterAffairs(affairs, filter)
     const deleteAffairCallback = (_id: number) => { // need to fix any
-        setAffairs(deleteAffair(affairs, _id));
         // need to fix
         // это просто функция стрелочник-она засетает, то что сделает deleteAffair
         // setAffairs(вызываю функцию(передаю аргументы))
+        setAffairs(deleteAffair(affairs, _id))
     }
 
     return (
